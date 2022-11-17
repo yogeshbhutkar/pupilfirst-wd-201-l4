@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 const todoList = () => {
   let date = new Date();
   let year = date.getFullYear();

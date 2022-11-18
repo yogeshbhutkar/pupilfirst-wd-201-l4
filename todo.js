@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 const todoList = () => {
   let date = new Date();
   let year = date.getFullYear();
@@ -7,7 +6,7 @@ const todoList = () => {
   let day = ("0" + date.getDate()).slice(-2);
   let currentDate = year + "-" + month + "-" + date;
 
-  all = [];
+  let all = [];
   const add = (todoItem) => {
     all.push(todoItem);
   };
@@ -28,15 +27,9 @@ const todoList = () => {
   };
 
   const dueToday = () => {
-    let duetoday = [];
     // Write the date check condition here and return the array of todo items that are due today accordingly.
     // FILL YOUR CODE HERE
-    all.forEach((element) => {
-      if (element.dueDate === today) {
-        duetoday.push(element);
-      }
-    });
-    return duetoday;
+    return all.filter((element) => element.dueDate === today);
   };
 
   const dueLater = () => {
@@ -77,5 +70,22 @@ const todoList = () => {
     toDisplayableList,
   };
 };
+
+// ####################################### #
+// DO NOT CHANGE ANYTHING BELOW THIS LINE. #
+// ####################################### #
+
+const formattedDate = (d) => {
+  return d.toISOString().split("T")[0];
+};
+
+var dateToday = new Date();
+const today = formattedDate(dateToday);
+const yesterday = formattedDate(
+  new Date(new Date().setDate(dateToday.getDate() - 1))
+);
+const tomorrow = formattedDate(
+  new Date(new Date().setDate(dateToday.getDate() + 1))
+);
 
 module.exports = todoList;
